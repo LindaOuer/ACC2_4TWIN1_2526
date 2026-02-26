@@ -1,7 +1,8 @@
-import { useState } from 'react'
+import { useState , useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import Events from './components/Events'
 
 function Button() {
   
@@ -10,17 +11,32 @@ function Button() {
   )
 }
 
+function Counter() {
+  const [count, setCount] = useState(0)
+
+
+  useEffect(() => {
+    console.log("Count has been updated:", count);
+}, 
+[
+  count
+]  
+
+)
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={() => setCount(count + 1)}>Increment</button>
+    </div>
+  )
+}
+
 function App() {
 
   const name = "4TWIN1";
   return (
     <>
-      <h1>{name}</h1>
-      <Button />
-      <br />
-      <p>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis, totam suscipit itaque consectetur ducimus error! Iure rem, numquam ipsam recusandae ratione veniam expedita culpa rerum a id eos ipsa molestiae?
-      </p>
+      <Events />
       </>
     
   )
