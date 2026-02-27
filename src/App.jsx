@@ -3,6 +3,11 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import Events from './components/Events'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import Home from './Home'
+import { Nav } from 'react-bootstrap'
+import NavigationBar from './components/NavigationBar'
+import EventDetails from './components/EventDetails'
 
 function Button() {
   
@@ -35,9 +40,15 @@ function App() {
 
   const name = "4TWIN1";
   return (
-    <>
-      <Events />
-      </>
+    <BrowserRouter>
+    <NavigationBar />
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/events" element={<Events />} />
+      <Route path="/events/:name" element={<EventDetails />} />
+      <Route path="*" element={<h1>Page Not Found</h1>} />
+    </Routes>
+  </BrowserRouter>
     
   )
 }

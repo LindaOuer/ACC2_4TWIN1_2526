@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
+import { Link } from "react-router-dom";
 
 export default function Event(props) {
   const [event, setEvent] = useState(props.event);
@@ -31,7 +32,11 @@ export default function Event(props) {
           src={`/images/${!!event.nbTickets ? event.img : "sold_out.png"}`}
         />
         <Card.Body>
-          <Card.Title>{event.name}</Card.Title>
+          <Card.Title>
+            <Link to={`/events/${event.name}`}>
+            {event.name}
+            </Link>
+          </Card.Title>
           <Card.Text>Price : {event.price}</Card.Text>
           <Card.Text>Number of tickets : {event.nbTickets}</Card.Text>
           <Card.Text>Number of participants : {event.nbParticipants}</Card.Text>
