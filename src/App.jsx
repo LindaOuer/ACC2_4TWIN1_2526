@@ -10,6 +10,7 @@ import { Nav } from "react-bootstrap";
 import NavigationBar from "./components/NavigationBar";
 import EventDetails from "./components/EventDetails";
 import Pokemon from "./components/Pokemon";
+import SimpleFormZod from "./components/SimpleFormZod";
 
 function Button() {
     return <button>Click Here</button>;
@@ -38,6 +39,7 @@ function App() {
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/pokemon" element={<Pokemon />} />
+                    <Route path="/form" element={<SimpleFormZod />} />
                     <Route path="/events" element={<Events />} />
                     <Route path="/events/:name" element={<EventDetails />} />
                     <Route path="*" element={<h1>Page Not Found</h1>} />
